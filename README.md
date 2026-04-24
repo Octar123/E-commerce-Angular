@@ -64,7 +64,7 @@ The project utilizes a robust relational structure:
 
 ### 1. Clone the project
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Octar123/E-commerce-Angular.git
 
 
 cd backend
