@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+}
+
+/* --- THE MAIN LAYOUT SPLIT --- */
+.layout-wrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+}
+
+.sidebar-zone {
+  flex: 0 0 20%;
+  min-width: 240px;
+  max-width: 300px;
+  height: 100%;
+  overflow-y: auto;
+  border-right: 1px solid #1f1b2e;
+  background-color: #000000;
+}
+
+.content-zone {
+  flex: 1;
+  height: 100%;
+  padding: 25px;
+  overflow-y: auto;
+  background-color: #050505;
+}
+
+/* --- REUSABLE FORM COMPONENTS --- */
+.form-group, .form-group-add {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label, .form-group-add label {
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: #a78bfa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+input, select, textarea {
+  padding: 12px;
+  border: 1px solid #2a1b4d;
+  border-radius: 10px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+textarea { height: 100px; }
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+/* --- BUTTONS --- */
+.btn-primary, .btn-add {
+  background: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 100%);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.btn-primary:hover, .btn-add:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+}
+
+.btn-cancel, .cancel-btn {
+  background: transparent;
+  border: 1px solid #3c2a6e;
+  color: #94a3b8;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-cancel:hover, .cancel-btn:hover {
+  background: rgba(248, 113, 113, 0.05);
+  border-color: #f87171;
+  color: #f87171;
+}
+
+/* --- MODALS & CONTAINERS --- */
+.add-container {
+  background: #0a0a0c;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #1f1b2e;
+  margin-bottom: 30px;
+}
+
+/* Shared Modal Card Logic for Add and Edit */
+.edit-mode, .add-container-modal form.form-inline {
+  position: fixed;
+  top: 50%;
+  left: 60%; 
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 650px;
+  background: #0d0b14;
+  padding: 35px;
+  border-radius: 20px;
+  border: 1px solid #3c2a6e;
+  z-index: 2000;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+}
+
+/* The Background Dimmer */
+.add-container-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* --- MISC --- */
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.char-count, .text-success {
+  font-size: 0.7rem;
+  color: #64748b;
+  margin-top: 5px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
